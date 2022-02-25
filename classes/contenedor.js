@@ -5,8 +5,8 @@ module.exports = class Contenedor {
   constructor(fileName) {
     this.fileName = fileName;
   }
-
-   save = async (item) => { 
+  
+   async save(item) { 
     let initialData = [];
 
     try {
@@ -45,7 +45,7 @@ module.exports = class Contenedor {
     }
   }
 
-   getById = async (providedId) => {
+  async getById(providedId) {
     try {
       const fileData = await fs.promises.readFile(this.fileName, 'utf-8')
       const parsedData = JSON.parse(fileData)
@@ -58,7 +58,7 @@ module.exports = class Contenedor {
     }
   }
 
-  getAll = async () => {
+  async getAll() {
     try {
       const fileData = await fs.promises.readFile(this.fileName, 'utf-8')
       const parsedData = JSON.parse(fileData)
@@ -70,7 +70,7 @@ module.exports = class Contenedor {
     }
   }
 
-  getByRandomId = async () => {
+  async getByRandomId () {
     try {
       const fileData = await fs.promises.readFile(this.fileName, 'utf-8')
       const parsedData = JSON.parse(fileData)
@@ -85,7 +85,7 @@ module.exports = class Contenedor {
     }
   }
 
-  deleteById = async (providedId) => {
+  async deleteById(providedId) {
     try {
       const fileData = await fs.promises.readFile(this.fileName, 'utf-8')
       const parsedData = JSON.parse(fileData)
@@ -99,7 +99,7 @@ module.exports = class Contenedor {
     }
   }
 
-  deleteAll = async () => {
+  async deleteAll() {
     try {
       await fs.promises.writeFile(this.fileName, "[]")
     }
